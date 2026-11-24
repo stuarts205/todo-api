@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Todo.Intrastructure.Persistence.Entities
+namespace Todo.Infrastructure.Persistence.Entities
 {
     public class User : BaseAudittableEntity
     {

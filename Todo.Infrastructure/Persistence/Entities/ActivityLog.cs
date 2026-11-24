@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Todo.Infrastructure.Persistence.Entities;
 
-namespace Todo.Intrastructure.Persistence.Entities
+namespace Todo.Infrastructure.Persistence.Entities
 {
     public class ActivityLog : BaseEntity
     {
