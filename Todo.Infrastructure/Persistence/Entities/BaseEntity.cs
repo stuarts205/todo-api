@@ -1,4 +1,4 @@
-﻿namespace Todo.Intrastructure.Persistence.Entities
+﻿namespace Todo.Infrastructure.Persistence.Entities
 {
     public abstract class BaseEntity
     {

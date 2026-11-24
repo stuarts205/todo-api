@@ -3,17 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Todo.Intrastructure.Persistence.Entities
+namespace Todo.Infrastructure.Persistence.Entities
 {
     public class TodoAppDbContext : DbContext
     {
         public TodoAppDbContext(DbContextOptions<TodoAppDbContext> options)
             : base(options)
         {
-            
+
         }
 
-        public DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TodoAppDbContext).Assembly);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(comment => comment.User)
+                .WithMany()
+                .HasForeignKey(comment => comment.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+        }
+
+        public DbSet<User> Users { get; set;}
         public DbSet<TodoList> TodoLists { get; set; }
         public DbSet<TodoItem> TodoItems { get; set; }
         public DbSet<Tag> Tags { get; set; }
