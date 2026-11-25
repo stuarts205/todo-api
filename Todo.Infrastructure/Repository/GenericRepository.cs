@@ -9,7 +9,7 @@ using Todo.Infrastructure.Persistence.Entities;
 
 namespace Todo.Infrastructure.Repository
 {
-    internal class GenericRepository<TDomain, TEntity> : IGenericRepository<TDomain> where TDomain : class where TEntity : class
+    public class GenericRepository<TDomain, TEntity> : IGenericRepository<TDomain> where TDomain : class where TEntity : class
     {
         private readonly TodoAppDbContext _todoAppDbContext;
         private readonly IMapper _mapper;
