@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Todo.Domain.DomainEntities;
+using Todo.Infrastructure.Persistence.Entities;
 
 namespace Todo.Infrastructure.Mappers
 {
@@ -10,7 +11,7 @@ namespace Todo.Infrastructure.Mappers
     {
         public UserMapperExtention()
         {
-            CreateMap<UserMapperExtention, UserDomain>();
+            CreateMap<User, UserDomain>().ReverseMap();
         }
     }
 }

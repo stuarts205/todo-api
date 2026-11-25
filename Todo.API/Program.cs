@@ -13,8 +13,7 @@ namespace Todo.API
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
             builder.Services.AddInfrastructure(builder.Configuration);
-
-            builder.Services.AddOpenApi();
+            builder.Services.AddApplication();
 
             var app = builder.Build();
 
@@ -22,16 +21,16 @@ namespace Todo.API
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+
+                app.UseHttpsRedirection();
+
+                app.UseAuthorization();
+
+
+                app.MapControllers();
+
+                app.Run();
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
         }
     }
 }

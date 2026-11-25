@@ -4,7 +4,7 @@
     {
         public DateTime createdAt { get; set; } = DateTime.UtcNow;
         public DateTime? updatedAt { get; set; } = DateTime.UtcNow;
-        public string createdBy { get; set; }
+        public string createdBy { get; set; } = "system";
         public string? updatedBy { get; set; }
     }
 }
